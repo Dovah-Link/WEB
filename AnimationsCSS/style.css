@@ -1,0 +1,136 @@
+p
+{
+    /* Seules la couleur du texte et les dimensions
+    de nos paragraphes auront une transition. */
+    transition-property: color, width, height;
+    
+    /* La transition durera trois secondes. */
+    transition-duration: 3s;
+
+    /* On stylise un peu plus nos paragraphes. */
+    width: 400px;
+    height: 200px;
+    color: #fff;
+    background-color: #a5a5a5;
+    border: 2px solid #000;
+    margin: auto;
+    text-align: center;
+    /*Il est possible de spécifier des valeurs différentes pour chaque propriété. */
+    transition: color 3s ease 1500ms, width 1s ease-in 0s, height 2s ease-out 0.2s;
+}
+
+	/* Style lors du passage de la souris
+	(= état final). */
+p:hover
+{
+   width: 300px;
+   height: 300px;
+   color: #000;
+}
+
+ul
+{
+	/* On supprime les puces, on précise une largeur
+    et on centre la liste par rapport à la page. */
+    list-style: none;
+	width: 60%;
+	margin: auto;
+}
+
+li
+{
+	/* On fixe les dimensions
+    des éléments de notre liste. */
+    width: 150px;
+	height: 150px;
+
+    /* On met en forme le texte. */
+	text-align: center;
+	font-weight: bold;
+  
+    /* On modifie l'affichage pour que
+    les éléments soient sur la même ligne. */
+	display: inline-block;
+	
+    /* On ajoute une petite bordure
+    et on définit les marges.  */
+	border: 1px solid #000;
+	margin: 10px;
+	padding: 0px;
+
+    /* Quitte à faire du CSS3, autant
+    avoir des coins arrondis :p. */
+    border-radius: 10px;
+    
+    /* On centre l'arrière-plan. */
+    background-position: center;
+  
+    /* On modifie la position pour pouvoir ensuite
+    placer comme on le souhaite la description des liens. */
+    position: relative;
+
+    /* On n'affiche pas ce qui dépasse de nos éléments ! */
+	overflow: hidden;	
+}
+
+/* On indique les images à afficher
+en arrière-plan pour chaque élément. */
+#item1{background-image: url('bgd1.jpg')}
+#item2{background-image: url('bgd2.jpg')}
+#item3{background-image: url('bgd3.jpg')}
+#item4{background-image: url('bgd4.jpg')}
+#item5{background-image: url('bgd5.jpg')}
+
+li a
+{
+    /* Pour fixer les dimensions d'un lien,
+        il est nécessaire de l'afficher en tant
+        qu'élément de type block. */
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+li span
+{
+	display: block;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    margin: 0px;
+        
+    /* La taille des lignes est égale à
+    la hauteur de l'élément. Cela permet
+    de centrer verticalement le texte. */
+    line-height: 50px;
+    
+    /* Abusons du CSS3 en affichant
+    un arrière-plan semi-transparent ! */
+    background-color: rgba(0,0,0,0.3);
+
+    /*Mettons les coins inférieurs arrondis
+    pour que ce soit plus propre
+    (merci à wibix pour la remarque)*/
+    border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+ 
+    /* Position absolue pour afficher
+    la description avec précision. */
+    position: absolute;
+
+    /* L'ordonnée de l'élément est égale
+    à la hauteur de son parent (150px) :
+    la description sera donc située sous
+    son parent. */
+	left: 0px;
+	top: 150px;
+	/* N'oublions pas les transitions ! */
+    transition-property: top;
+    transition-duration: 1s;
+}
+/* On modifie l'ordonnée des descriptions contenues
+dans un élément d'une liste survolée par la souris. */
+li:hover span
+{
+	top: 100px;
+}
