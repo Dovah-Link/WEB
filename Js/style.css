@@ -1,0 +1,34 @@
+header
+{
+	color:white;
+	background-color: rgb(111, 84, 153);
+	padding:5%;
+	text-align: center;
+
+}
+article
+{
+	margin-top: 2%;
+	text-align: center;
+}
+#formulaire
+{
+	margin-top: 5%;
+	margin-right: 10%;
+	margin-left: 10%;
+
+}
+#ok
+{
+	margin-top: 1%;
+}
+#label1
+{	
+	visibility: hidden;
+	margin-top: 5%;
+	text-align: center;
+}
+#ReT
+{
+	height: 60px;
+}

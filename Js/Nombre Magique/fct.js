@@ -16,7 +16,7 @@ function search()
 	// {
 	// 	NbSecret=nombremag();
 	// }
-	if(NbSecret!=0)
+	if(NbSecret>-1)
 	{
 		if(compteur<10)
 		{
@@ -40,7 +40,9 @@ function search()
 					document.getElementById("label1").style.visibility="visible";
 					document.getElementById("label1").className="alert alert-success";
 					formmask.style.visibility="hidden";
-					stock = form.innerHTML='Voulez vous rejouez ?</br><button><clique</button>';
+					ReT.style.visibility="visible";
+					form2.style.position = "absolute";
+					form2.style.margin = "-15% -65% 0px 26%";
 				}
 			}
 			else
@@ -49,31 +51,38 @@ function search()
 				document.getElementById("label1").style.visibility="visible";
 				document.getElementById("label1").className="alert alert-danger";
 			}
-			compteur++;
+
 		}
 		else
 		{
 			formmask.style.visibility="hidden";
+			resultat="Raté ! Le nombre magique était : "+NbSecret;
+			document.getElementById("label1").style.visibility="visible";
+			document.getElementById("label1").className="alert alert-danger";
+			ReT.style.visibility = "visible";
+			form2.style.position = "absolute";
+			form2.style.top = "35%";
+			form2.style.left = "30%";
 		}
 		label1.innerHTML = resultat;
+		compteur++;
+		tour.innerHTML = "Tour "+compteur+" : ";
 	}	
 }
 
 function clear()
 {
-
 	Nb.value="";
 }
 
-function retry()
+function FCretry()
 {
-	var ret = document.createElement("BUTTON"); 
-	ret.className = "glyphicon glyphicon-ok";
-	document.form.appendChild(ret); 
+	location.reload();
 }
 
+var tour = document.getElementById("tour");
 var stock;
-var compteur=0;
+var compteur = 1;
 var NbSecret;
 var resultat;
 var formmask = document.getElementById("formmask");
@@ -81,10 +90,16 @@ var form = document.getElementById("formulaire");
 var btn = document.getElementById("ok");
 var label1 = document.getElementById("label1");
 var Nb = document.getElementById('Nb');
-var re = /[0-9]{1,3}/;
+var re = /^[0-9]{1,3}$/;
+var ReT = document.getElementById("ReT");
+ReT.style.visibility="hidden";
+var form2 = document.getElementById("formulaire2");
+
+
 
 window.addEventListener("load", nombremag);
 btn.addEventListener("click", search);
 Nb.addEventListener("click", clear);
+ReT.addEventListener("click", FCretry);
 
 

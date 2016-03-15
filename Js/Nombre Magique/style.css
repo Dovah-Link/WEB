@@ -27,3 +27,10 @@ article
 	margin-top: 2%;
 	text-align: center;
 }
+
+#retry
+{
+	top:5px;
+	width:50px;
+	height: 30px;
+}
