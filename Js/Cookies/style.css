@@ -1,0 +1,11 @@
+.jumbotron
+{
+	background-color: rgb(111, 84, 153);
+	color:white;
+	padding-left: 2%;
+}
+#ntm
+{
+	visibility:hidden;
+	margin-top: -35%;
+}
