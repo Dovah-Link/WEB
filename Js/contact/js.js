@@ -10,7 +10,8 @@ var dd = document.querySelectorAll(".dropdown-menu  a");
 var riri = document.getElementById("riri");
 var cp = document.getElementById("cp");
 var ville = document.getElementById("ville");
-var mail = document.getElementById("mail")
+var mail = document.getElementById("mail");
+var tel = document.getElementById("tel");
 
 /*------------------------------------------------------------- Variables RegEx ------------------------------------------------------------*/
 
@@ -19,7 +20,8 @@ var RepCont = /^[A-Za-z '-]{2,}$/;
 var RepAdrs = /^([0-9]{1,4}){1}([ ]{1}[A-Za-z0-9]+){1,}/;
 var RepCp = /^[0-9]{5}$/;
 var RepVille = /^[A-Za-z0-9\ éèàçâêûîôäëüïö-]{2,}$/;
-var RepMail = /^([A-Za-z0-9 -_]+(.))$/;
+var RepMail = /^([A-Za-z0-9 -_.]+[A-Za-z0-9]*)@([A-Za-z]{2,})(.([A-Za-z]{2,3}))+$/;
+var RepTel = /^[0-9]{10}$/;
 
 /*------------------------------------------------------------- Affichage dans dropdown ------------------------------------------------------------*/
 
@@ -126,6 +128,20 @@ function verifMail()
 	}
 }
 
+function verifTel()
+{
+	if(RepTel.test(tel.value)==true)
+	{
+		console.log("ok");
+		tel.style.borderColor="green";
+	}
+	else
+	{
+		tel.style.borderColor="red";
+		console.log("nop");
+	}
+}
+
 /*------------------------------------------------------------- Evenements  ------------------------------------------------------------------------*/
 
 soci.addEventListener("input",verifSoci);
@@ -134,6 +150,7 @@ adrs.addEventListener("input",verifAdrs);
 cp.addEventListener("input", verifCP);
 ville.addEventListener("input", verifVille);
 mail.addEventListener("input", verifMail);
+tel.addEventListener("input", verifTel);
 
 
 go.addEventListener("click", display);
